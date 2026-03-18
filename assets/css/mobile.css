@@ -1,0 +1,474 @@
+/**
+ * Berufsmesse – Mobile Optimizations
+ * Comprehensive responsive improvements for smartphones
+ * Breakpoints: ≤1024px (tablet/mobile), ≤768px (mobile), ≤640px (small mobile)
+ */
+
+/* ==========================================================================
+   1. DATA TABLES → CARD LAYOUT on Mobile
+   Applied automatically via JS (mobile-tables.js adds data-label attrs)
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    /* Tables marked with .mobile-cards transform rows into cards */
+    table.mobile-cards {
+        display: block;
+        border: none;
+    }
+
+    table.mobile-cards thead {
+        display: none; /* Headers are shown via data-label pseudo-elements */
+    }
+
+    table.mobile-cards tbody {
+        display: block;
+    }
+
+    table.mobile-cards tr {
+        display: block;
+        margin-bottom: 0.75rem;
+        border: 1px solid #e5e7eb;
+        border-radius: 0.75rem;
+        background: #fff;
+        overflow: hidden;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    }
+
+    table.mobile-cards tr:hover {
+        border-color: #d1d5db;
+    }
+
+    table.mobile-cards td {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        padding: 0.5rem 0.875rem;
+        border: none;
+        border-bottom: 1px solid #f3f4f6;
+        font-size: 0.8125rem;
+        white-space: normal !important;
+        min-height: 36px;
+    }
+
+    table.mobile-cards td:last-child {
+        border-bottom: none;
+    }
+
+    table.mobile-cards td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: #6b7280;
+        font-size: 0.6875rem;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        margin-right: 0.75rem;
+        min-width: 5.5rem;
+        padding-top: 0.1rem;
+        flex-shrink: 0;
+    }
+
+    table.mobile-cards td:empty::before {
+        display: none;
+    }
+
+    /* Action column: full-width row of buttons */
+    table.mobile-cards td[data-label="Aktionen"],
+    table.mobile-cards td[data-label="Aktion"] {
+        justify-content: flex-end;
+        padding-top: 0.625rem;
+        padding-bottom: 0.625rem;
+        background: #f9fafb;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+
+    table.mobile-cards td[data-label="Aktionen"]::before,
+    table.mobile-cards td[data-label="Aktion"]::before {
+        display: none;
+    }
+
+    /* Ensure action buttons are properly sized */
+    table.mobile-cards td[data-label="Aktionen"] button,
+    table.mobile-cards td[data-label="Aktionen"] a,
+    table.mobile-cards td[data-label="Aktion"] button,
+    table.mobile-cards td[data-label="Aktion"] a {
+        min-height: 36px;
+        padding: 0.375rem 0.625rem;
+        font-size: 0.8125rem;
+    }
+
+    /* Hide secondary columns on very small screens */
+    table.mobile-cards td.hide-mobile {
+        display: none;
+    }
+
+    /* Wrapper for overflowing tables: keep on desktop, cards on mobile */
+    .mobile-table-wrapper {
+        overflow-x: visible !important;
+    }
+}
+
+/* ==========================================================================
+   2. MODALS → BOTTOM SHEET on Small Screens
+   ========================================================================== */
+
+@media (max-width: 640px) {
+    /* Full-width bottom sheet modals */
+    .modal-backdrop > div,
+    .fixed.inset-0.flex.items-center.justify-center > div,
+    .fixed.inset-0.bg-black > div,
+    .fixed.inset-0.bg-black\/50 > div,
+    .fixed.inset-0.bg-black\/40 > div {
+        width: 100vw !important;
+        max-width: 100vw !important;
+        max-height: 92vh !important;
+        margin: 0 !important;
+        border-radius: 1.25rem 1.25rem 0 0 !important;
+        position: fixed !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        top: auto !important;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: env(safe-area-inset-bottom, 1rem) !important;
+    }
+
+    /* Modal header drag handle indicator */
+    .modal-backdrop > div::before,
+    .fixed.inset-0.flex.items-center.justify-center > div::before {
+        content: '';
+        display: block;
+        width: 2.5rem;
+        height: 0.25rem;
+        background: #d1d5db;
+        border-radius: 9999px;
+        margin: 0.625rem auto 0;
+    }
+
+    /* Force single-column grids inside modals */
+    .modal-backdrop .grid,
+    .fixed.inset-0 .grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* ==========================================================================
+   3. FILTER SCROLL FADE HINT
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .mobile-scroll-fade {
+        position: relative;
+    }
+
+    .mobile-scroll-fade::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 2.5rem;
+        background: linear-gradient(to right, transparent, white 90%);
+        pointer-events: none;
+        border-radius: 0 0.5rem 0.5rem 0;
+    }
+}
+
+/* ==========================================================================
+   4. TOAST – Full Width on Mobile
+   ========================================================================== */
+
+@media (max-width: 640px) {
+    .toast,
+    [class*="toast"] {
+        left: 0.75rem !important;
+        right: 0.75rem !important;
+        bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px)) !important;
+        width: auto !important;
+        max-width: none !important;
+    }
+}
+
+/* ==========================================================================
+   5. FORMS – Mobile Optimizations
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    /* Proper keyboard types already set via type= attributes.
+       Here we ensure sizing. */
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="number"],
+    input[type="search"],
+    input[type="tel"],
+    input[type="url"],
+    input[type="date"],
+    input[type="datetime-local"],
+    select,
+    textarea {
+        font-size: 16px !important; /* Prevents iOS auto-zoom */
+        min-height: 44px;
+        touch-action: manipulation;
+    }
+
+    /* Submit buttons: full-width on mobile */
+    form button[type="submit"] {
+        min-height: 48px;
+    }
+
+    /* Spacing between stacked form elements */
+    .form-group + .form-group {
+        margin-top: 0.75rem;
+    }
+
+    /* Labels always above inputs on mobile */
+    .form-row {
+        flex-direction: column;
+    }
+
+    /* Better checkbox touch targets */
+    input[type="checkbox"],
+    input[type="radio"] {
+        width: 1.25rem;
+        height: 1.25rem;
+        cursor: pointer;
+    }
+
+    /* Larger label click area */
+    label {
+        min-height: 24px;
+        cursor: pointer;
+    }
+}
+
+/* ==========================================================================
+   6. STAT GRID – 2 cols on mobile
+   ========================================================================== */
+
+@media (max-width: 640px) {
+    .stats-grid-4 {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+@media (max-width: 360px) {
+    .stats-grid-4 {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* ==========================================================================
+   7. CHART.JS – Responsive Canvases
+   ========================================================================== */
+
+@media (max-width: 640px) {
+    canvas {
+        max-width: 100% !important;
+    }
+}
+
+/* ==========================================================================
+   8. SAFE AREA INSETS (iOS notch / home indicator)
+   ========================================================================== */
+
+/* Fixed bottom elements get home indicator clearance */
+.fixed-bottom-safe {
+    padding-bottom: env(safe-area-inset-bottom, 0.5rem);
+}
+
+/* Sidebar safe area for devices with notches */
+@supports (padding-top: env(safe-area-inset-top)) {
+    .sidebar {
+        padding-top: env(safe-area-inset-top, 0);
+    }
+}
+
+/* ==========================================================================
+   9. GENERAL TOUCH TARGETS & SPACING
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+    /* Every clickable element needs min 44×44px tap target */
+    a.nav-link,
+    button.nav-link {
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+    }
+
+    /* Badges shouldn't be tiny */
+    .badge {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Clickable rows get bigger tap area */
+    tr[onclick],
+    tr[data-href] {
+        cursor: pointer;
+    }
+
+    tr[onclick] td,
+    tr[data-href] td {
+        padding-top: 0.875rem;
+        padding-bottom: 0.875rem;
+    }
+
+    /* Announcement banners compact on mobile */
+    .announcement-banner {
+        padding: 0.625rem 0.875rem;
+        font-size: 0.875rem;
+        border-radius: 0.75rem;
+    }
+
+    /* Page title area breathing room after hamburger */
+    #mobileHeader + *,
+    #mobileHeader ~ * {
+        clear: left; /* ensures content starts below the floated hamburger */
+    }
+
+    /* Announcement and page title clearfix */
+    .page-content::after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+}
+
+/* ==========================================================================
+   10. ADMIN HEADER ROWS – Stack on Mobile
+   ========================================================================== */
+
+@media (max-width: 640px) {
+    /* Section header (title + action buttons) stacks vertically */
+    .section-header-row {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 0.75rem !important;
+    }
+
+    .section-header-row .action-buttons {
+        width: 100%;
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+
+    .section-header-row .action-buttons button,
+    .section-header-row .action-buttons a {
+        flex: 1;
+        min-width: calc(50% - 0.25rem);
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+/* ==========================================================================
+   11. QR CHECK-IN PAGE – Mobile Optimized
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    /* QR Scanner video full width */
+    #qr-video,
+    #qrVideo,
+    video[id*="qr"],
+    video[id*="scanner"] {
+        width: 100% !important;
+        max-width: 100% !important;
+        border-radius: 0.75rem;
+    }
+
+    /* Scan result feedback – prominent */
+    .scan-result-success {
+        font-size: 1.125rem;
+        font-weight: 700;
+        padding: 1rem;
+        border-radius: 0.75rem;
+        text-align: center;
+    }
+
+    /* Manual input large */
+    #manualInput,
+    input[name="manual_code"],
+    input[id*="manual"] {
+        font-size: 1.25rem !important;
+        text-align: center;
+        letter-spacing: 0.15em;
+        min-height: 56px !important;
+    }
+}
+
+/* ==========================================================================
+   12. PRINT VIEW – Hidden on Mobile (use PDF download instead)
+   ========================================================================== */
+
+@media (max-width: 640px) {
+    /* Hint that prints are optimised for desktop/PDF */
+    .print-only-desktop {
+        display: none;
+    }
+}
+
+/* ==========================================================================
+   13. SCHEDULE / TIMETABLE – Mobile Layout
+   ========================================================================== */
+
+@media (max-width: 640px) {
+    /* Timeline items full width */
+    .schedule-item,
+    .timeline-item {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    }
+
+    .schedule-time {
+        font-size: 0.75rem;
+        margin-bottom: 0.25rem;
+    }
+}
+
+/* ==========================================================================
+   14. SCROLLBAR HIDE UTILITY (used for horizontal scroll areas)
+   ========================================================================== */
+
+.scrollbar-hide {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+/* ==========================================================================
+   15. DRAG-AND-DROP FALLBACK – Touch-Friendly Select Mode
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+    /* Show alternative assignment UI on touch devices */
+    .dnd-mobile-hint {
+        display: flex;
+    }
+
+    /* Hide drag handles on touch */
+    .drag-handle {
+        display: none;
+    }
+
+    /* Draggable items: make them clearly tappable */
+    [draggable="true"] {
+        cursor: pointer;
+        -webkit-user-select: none;
+        user-select: none;
+        touch-action: manipulation;
+    }
+}
+
+@media (min-width: 1025px) {
+    .dnd-mobile-hint {
+        display: none;
+    }
+}

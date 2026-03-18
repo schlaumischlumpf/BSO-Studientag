@@ -1,0 +1,707 @@
+/**
+ * Berufsmesse Design System
+ * Modern, minimalistisches Design mit Pastellfarben
+ * Version 2.0
+ */
+
+/* ==========================================================================
+   CSS Custom Properties - Pastellfarben Palette
+   ========================================================================== */
+
+:root {
+    /* Primäre Pastellfarben */
+    --color-mint: #a8e6cf;
+    --color-mint-light: #d4f5e4;
+    --color-mint-dark: #6bc4a6;
+    
+    --color-lavender: #c3b1e1;
+    --color-lavender-light: #e8dff5;
+    --color-lavender-dark: #9b7fc7;
+    
+    --color-peach: #ffb7b2;
+    --color-peach-light: #ffdad8;
+    --color-peach-dark: #e8918a;
+    
+    --color-sky: #b5deff;
+    --color-sky-light: #dceeff;
+    --color-sky-dark: #7fc4ff;
+    
+    --color-butter: #fff3b0;
+    --color-butter-light: #fff9d9;
+    --color-butter-dark: #f5e080;
+    
+    --color-rose: #ffc8dd;
+    --color-rose-light: #ffe4ee;
+    --color-rose-dark: #ffafc7;
+    
+    /* Neutrale Farben */
+    --color-white: #ffffff;
+    --color-gray-50: #f9fafb;
+    --color-gray-100: #f3f4f6;
+    --color-gray-200: #e5e7eb;
+    --color-gray-300: #d1d5db;
+    --color-gray-400: #9ca3af;
+    --color-gray-500: #6b7280;
+    --color-gray-600: #4b5563;
+    --color-gray-700: #374151;
+    --color-gray-800: #1f2937;
+    --color-gray-900: #111827;
+    
+    /* Status Farben */
+    --color-success: #a8e6cf;
+    --color-success-dark: #4ade80;
+    --color-warning: #fff3b0;
+    --color-warning-dark: #fbbf24;
+    --color-error: #ffb7b2;
+    --color-error-dark: #f87171;
+    --color-info: #b5deff;
+    --color-info-dark: #60a5fa;
+    
+    /* Spacing */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-2xl: 3rem;
+    --space-3xl: 4rem;
+    
+    /* Border Radius */
+    --radius-sm: 0.375rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+    --radius-xl: 1rem;
+    --radius-2xl: 1.5rem;
+    --radius-full: 9999px;
+    
+    /* Shadows */
+    --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    --shadow-glow-mint: 0 0 20px rgba(168, 230, 207, 0.4);
+    --shadow-glow-lavender: 0 0 20px rgba(195, 177, 225, 0.4);
+    --shadow-glow-peach: 0 0 20px rgba(255, 183, 178, 0.4);
+    
+    /* Transitions */
+    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    
+    /* Layout */
+    --sidebar-width: 16rem;
+    --sidebar-collapsed-width: 4.5rem;
+    --header-height: 4rem;
+}
+
+/* ==========================================================================
+   Base Styles
+   ========================================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: var(--color-gray-800);
+    background-color: var(--color-gray-50);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==========================================================================
+   Animation Keyframes
+   ========================================================================== */
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+/* ==========================================================================
+   Animation Utility Classes
+   ========================================================================== */
+
+.animate-fade-in {
+    animation: fadeIn var(--transition-normal) ease-out forwards;
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp var(--transition-normal) ease-out forwards;
+}
+
+.animate-fade-in-down {
+    animation: fadeInDown var(--transition-normal) ease-out forwards;
+}
+
+.animate-slide-in-left {
+    animation: slideInLeft var(--transition-normal) ease-out forwards;
+}
+
+.animate-slide-in-right {
+    animation: slideInRight var(--transition-normal) ease-out forwards;
+}
+
+.animate-scale-in {
+    animation: scaleIn var(--transition-normal) ease-out forwards;
+}
+
+.animate-pulse {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.animate-bounce {
+    animation: bounce 1s ease-in-out infinite;
+}
+
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
+
+.animate-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Stagger Animation Delays */
+.stagger-1 { animation-delay: 50ms; }
+.stagger-2 { animation-delay: 100ms; }
+.stagger-3 { animation-delay: 150ms; }
+.stagger-4 { animation-delay: 200ms; }
+.stagger-5 { animation-delay: 250ms; }
+.stagger-6 { animation-delay: 300ms; }
+.stagger-7 { animation-delay: 350ms; }
+.stagger-8 { animation-delay: 400ms; }
+
+/* ==========================================================================
+   Component Styles - Buttons
+   ========================================================================== */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-md);
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.5;
+    border-radius: var(--radius-lg);
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+.btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(168, 230, 207, 0.4);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Button Variants */
+.btn-primary {
+    background: linear-gradient(135deg, var(--color-mint) 0%, var(--color-mint-dark) 100%);
+    color: var(--color-gray-800);
+}
+
+.btn-primary:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md), var(--shadow-glow-mint);
+}
+
+.btn-primary:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.btn-secondary {
+    background: var(--color-white);
+    color: var(--color-gray-700);
+    border: 1px solid var(--color-gray-200);
+}
+
+.btn-secondary:hover:not(:disabled) {
+    background: var(--color-gray-50);
+    border-color: var(--color-gray-300);
+    transform: translateY(-1px);
+}
+
+.btn-lavender {
+    background: linear-gradient(135deg, var(--color-lavender) 0%, var(--color-lavender-dark) 100%);
+    color: var(--color-gray-800);
+}
+
+.btn-lavender:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md), var(--shadow-glow-lavender);
+}
+
+.btn-peach {
+    background: linear-gradient(135deg, var(--color-peach) 0%, var(--color-peach-dark) 100%);
+    color: var(--color-gray-800);
+}
+
+.btn-peach:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md), var(--shadow-glow-peach);
+}
+
+.btn-ghost {
+    background: transparent;
+    color: var(--color-gray-600);
+}
+
+.btn-ghost:hover:not(:disabled) {
+    background: var(--color-gray-100);
+    color: var(--color-gray-800);
+}
+
+/* Button Sizes */
+.btn-sm {
+    padding: var(--space-xs) var(--space-sm);
+    font-size: 0.75rem;
+}
+
+.btn-lg {
+    padding: var(--space-md) var(--space-xl);
+    font-size: 1rem;
+}
+
+/* ==========================================================================
+   Component Styles - Cards
+   ========================================================================== */
+
+.card {
+    background: var(--color-white);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--color-gray-100);
+    transition: all var(--transition-normal);
+}
+
+.card:hover {
+    border-color: var(--color-gray-200);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+}
+
+.card-pastel-mint {
+    background: linear-gradient(135deg, var(--color-mint-light) 0%, var(--color-white) 100%);
+    border-color: var(--color-mint);
+}
+
+.card-pastel-lavender {
+    background: linear-gradient(135deg, var(--color-lavender-light) 0%, var(--color-white) 100%);
+    border-color: var(--color-lavender);
+}
+
+.card-pastel-peach {
+    background: linear-gradient(135deg, var(--color-peach-light) 0%, var(--color-white) 100%);
+    border-color: var(--color-peach);
+}
+
+.card-pastel-sky {
+    background: linear-gradient(135deg, var(--color-sky-light) 0%, var(--color-white) 100%);
+    border-color: var(--color-sky);
+}
+
+/* ==========================================================================
+   Component Styles - Input Fields
+   ========================================================================== */
+
+.input {
+    width: 100%;
+    padding: var(--space-sm) var(--space-md);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--color-gray-800);
+    background: var(--color-white);
+    border: 1px solid var(--color-gray-200);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-fast);
+}
+
+.input:focus {
+    outline: none;
+    border-color: var(--color-mint);
+    box-shadow: 0 0 0 3px rgba(168, 230, 207, 0.2);
+}
+
+.input:hover:not(:focus) {
+    border-color: var(--color-gray-300);
+}
+
+.input::placeholder {
+    color: var(--color-gray-400);
+}
+
+/* ==========================================================================
+   Component Styles - Badges
+   ========================================================================== */
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: var(--space-xs) var(--space-sm);
+    font-size: 0.75rem;
+    font-weight: 500;
+    border-radius: var(--radius-full);
+    transition: all var(--transition-fast);
+}
+
+.badge-mint {
+    background: var(--color-mint-light);
+    color: var(--color-mint-dark);
+}
+
+.badge-lavender {
+    background: var(--color-lavender-light);
+    color: var(--color-lavender-dark);
+}
+
+.badge-peach {
+    background: var(--color-peach-light);
+    color: var(--color-peach-dark);
+}
+
+.badge-sky {
+    background: var(--color-sky-light);
+    color: var(--color-sky-dark);
+}
+
+.badge-butter {
+    background: var(--color-butter-light);
+    color: var(--color-butter-dark);
+}
+
+/* ==========================================================================
+   Layout - Sidebar
+   ========================================================================== */
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: var(--sidebar-width);
+    background: var(--color-white);
+    border-right: 1px solid var(--color-gray-100);
+    display: flex;
+    flex-direction: column;
+    z-index: 40;
+    transition: all var(--transition-normal);
+}
+
+.sidebar-nav-link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-sm) var(--space-md);
+    margin: var(--space-xs) var(--space-sm);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-gray-600);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-fast);
+    text-decoration: none;
+}
+
+.sidebar-nav-link:hover {
+    background: var(--color-gray-50);
+    color: var(--color-gray-800);
+    transform: translateX(4px);
+}
+
+.sidebar-nav-link.active {
+    background: var(--color-mint-light);
+    color: var(--color-mint-dark);
+}
+
+.sidebar-nav-link.active i {
+    color: var(--color-mint-dark);
+}
+
+.sidebar-nav-link i {
+    width: 1.25rem;
+    text-align: center;
+    transition: all var(--transition-fast);
+}
+
+/* ==========================================================================
+   Layout - Main Content
+   ========================================================================== */
+
+.main-content {
+    margin-left: var(--sidebar-width);
+    min-height: 100vh;
+    transition: margin-left var(--transition-normal);
+}
+
+/* ==========================================================================
+   Component Styles - Modal
+   ========================================================================== */
+
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 50;
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-normal);
+}
+
+.modal-backdrop.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.95);
+    background: var(--color-white);
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--shadow-xl);
+    max-width: 90vw;
+    max-height: 90vh;
+    overflow: hidden;
+    opacity: 0;
+    transition: all var(--transition-normal);
+    z-index: 51;
+}
+
+.modal-backdrop.active .modal-content {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* ==========================================================================
+   Component Styles - Toast Notifications
+   ========================================================================== */
+
+.toast {
+    position: fixed;
+    bottom: var(--space-xl);
+    right: var(--space-xl);
+    padding: var(--space-md) var(--space-lg);
+    background: var(--color-white);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    transform: translateX(calc(100% + var(--space-xl)));
+    transition: all var(--transition-normal);
+    z-index: 100;
+}
+
+.toast.active {
+    transform: translateX(0);
+}
+
+.toast-success {
+    border-left: 4px solid var(--color-success-dark);
+}
+
+.toast-error {
+    border-left: 4px solid var(--color-error-dark);
+}
+
+.toast-warning {
+    border-left: 4px solid var(--color-warning-dark);
+}
+
+.toast-info {
+    border-left: 4px solid var(--color-info-dark);
+}
+
+/* ==========================================================================
+   Component Styles - Progress Indicator
+   ========================================================================== */
+
+.progress-ring {
+    transform: rotate(-90deg);
+}
+
+.progress-ring-circle {
+    transition: stroke-dashoffset var(--transition-slow);
+    transform-origin: 50% 50%;
+}
+
+/* ==========================================================================
+   Utility Classes
+   ========================================================================== */
+
+.glass {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.gradient-mint {
+    background: linear-gradient(135deg, var(--color-mint-light) 0%, var(--color-mint) 100%);
+}
+
+.gradient-lavender {
+    background: linear-gradient(135deg, var(--color-lavender-light) 0%, var(--color-lavender) 100%);
+}
+
+.gradient-peach {
+    background: linear-gradient(135deg, var(--color-peach-light) 0%, var(--color-peach) 100%);
+}
+
+.gradient-sky {
+    background: linear-gradient(135deg, var(--color-sky-light) 0%, var(--color-sky) 100%);
+}
+
+.skeleton {
+    background: linear-gradient(90deg, var(--color-gray-100) 25%, var(--color-gray-200) 50%, var(--color-gray-100) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+    
+    .sidebar.open {
+        transform: translateX(0);
+    }
+    
+    .main-content {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 640px) {
+    .toast {
+        left: var(--space-md);
+        right: var(--space-md);
+        bottom: var(--space-md);
+        width: auto;
+        max-width: none;
+    }
+}
+
+/* ==========================================================================
+   Print Styles
+   ========================================================================== */
+
+@media print {
+    .sidebar,
+    .btn,
+    .toast,
+    .modal-backdrop {
+        display: none !important;
+    }
+    
+    .main-content {
+        margin-left: 0 !important;
+    }
+    
+    body {
+        background: white !important;
+    }
+}

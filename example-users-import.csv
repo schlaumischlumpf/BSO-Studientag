@@ -1,0 +1,5 @@
+firstname;lastname;username;email;role;class;password
+Max;Mustermann;mmustermann;max.mustermann@schule.de;student;10A;
+Erika;Musterfrau;emusterfrau;erika.musterfrau@schule.de;student;10B;
+Hans;Lehrer;hlehrer;hans.lehrer@schule.de;teacher;;
+Anna;Orga;aorga;anna.orga@schule.de;orga;;temppass123

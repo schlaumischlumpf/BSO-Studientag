@@ -1,0 +1,1034 @@
+/* ============================================
+   BERUFSMESSE - Easter Eggs Styles
+   Fun hidden features styling
+   ============================================ */
+
+/* ============================================
+   EASTER EGG 1: 2002 Retro Mode
+   Authentic early-2000s Geocities / FrontPage era
+   Applied on <html> element, persists via localStorage
+   ============================================ */
+
+/* --- Base Reset --- */
+.retro-2002-mode,
+.retro-2002-mode *,
+.retro-2002-mode *::before,
+.retro-2002-mode *::after {
+    border-radius: 0 !important;
+    transition: none !important;
+}
+
+/* Primary fonts: Verdana was THE web font of 2002, Comic Sans for fun headers */
+.retro-2002-mode body,
+.retro-2002-mode p,
+.retro-2002-mode span,
+.retro-2002-mode label,
+.retro-2002-mode div,
+.retro-2002-mode td,
+.retro-2002-mode li,
+.retro-2002-mode input,
+.retro-2002-mode select,
+.retro-2002-mode textarea,
+.retro-2002-mode button {
+    font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+}
+
+.retro-2002-mode h1,
+.retro-2002-mode h2,
+.retro-2002-mode h3,
+.retro-2002-mode h4 {
+    font-family: 'Comic Sans MS', 'Chalkboard SE', cursive !important;
+}
+
+/* --- Body: tiled starfield background --- */
+.retro-2002-mode body {
+    background-color: #000033 !important;
+    background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='200' height='200' fill='%23000033'/%3E%3Ccircle cx='15' cy='30' r='1' fill='%23ffffff' opacity='0.7'/%3E%3Ccircle cx='80' cy='10' r='0.8' fill='%23ffffff' opacity='0.5'/%3E%3Ccircle cx='150' cy='55' r='1.2' fill='%23ffffff' opacity='0.6'/%3E%3Ccircle cx='45' cy='90' r='0.6' fill='%23ffffff' opacity='0.4'/%3E%3Ccircle cx='120' cy='120' r='1' fill='%23ffffff' opacity='0.8'/%3E%3Ccircle cx='180' cy='140' r='0.7' fill='%23ffffff' opacity='0.3'/%3E%3Ccircle cx='30' cy='160' r='1.1' fill='%23ffffff' opacity='0.5'/%3E%3Ccircle cx='95' cy='180' r='0.9' fill='%23ffffff' opacity='0.6'/%3E%3Ccircle cx='170' cy='25' r='0.5' fill='%23ffffff' opacity='0.7'/%3E%3Ccircle cx='60' cy='140' r='1.3' fill='%23ffffcc' opacity='0.4'/%3E%3Ccircle cx='140' cy='80' r='0.8' fill='%23ccccff' opacity='0.5'/%3E%3Ccircle cx='10' cy='110' r='0.6' fill='%23ffffff' opacity='0.3'/%3E%3Ccircle cx='190' cy='190' r='1' fill='%23ffffff' opacity='0.6'/%3E%3Ccircle cx='105' cy='45' r='0.7' fill='%23ffffff' opacity='0.5'/%3E%3C/svg%3E") !important;
+    background-repeat: repeat !important;
+}
+
+/* --- Sidebar: classic "left frame" navigation panel --- */
+.retro-2002-mode .sidebar,
+.retro-2002-mode aside {
+    background: #333366 !important;
+    border-right: 3px ridge #9999cc !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+}
+
+/* Sidebar header */
+.retro-2002-mode .sidebar > div:first-child,
+.retro-2002-mode aside > div:first-child {
+    background: linear-gradient(180deg, #666699 0%, #333366 100%) !important;
+    border-bottom: 2px ridge #9999cc !important;
+    padding: 8px 12px !important;
+}
+
+.retro-2002-mode .sidebar h1,
+.retro-2002-mode aside h1 {
+    color: #ffcc00 !important;
+    text-shadow: 2px 2px 0 #000000 !important;
+    font-weight: bold !important;
+    font-size: 14px !important;
+    font-family: 'Comic Sans MS', cursive !important;
+}
+
+.retro-2002-mode .sidebar p,
+.retro-2002-mode aside .text-xs {
+    color: #ccccff !important;
+    font-size: 10px !important;
+}
+
+/* Logo icon */
+.retro-2002-mode .sidebar .w-10.h-10.rounded-xl:first-child {
+    background: #ffcc00 !important;
+    border: 2px outset #ffee88 !important;
+    box-shadow: none !important;
+}
+
+.retro-2002-mode .sidebar .w-10.h-10.rounded-xl:first-child i {
+    color: #333366 !important;
+    text-shadow: none !important;
+}
+
+/* Nav links → classic text link list */
+.retro-2002-mode .nav-link {
+    background: transparent !important;
+    color: #66ccff !important;
+    border: none !important;
+    margin: 0 !important;
+    padding: 3px 8px !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    font-size: 11px !important;
+    text-decoration: none !important;
+    font-family: Verdana, sans-serif !important;
+}
+
+.retro-2002-mode .nav-link::before {
+    content: '\25BA ' !important;
+    display: inline !important;
+    position: static !important;
+    width: auto !important;
+    height: auto !important;
+    background: none !important;
+    color: #ffcc00 !important;
+    font-size: 8px !important;
+    margin-right: 4px !important;
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+.retro-2002-mode .nav-link:hover {
+    color: #ffffff !important;
+    background: #000066 !important;
+    text-decoration: underline !important;
+    border: none !important;
+}
+
+.retro-2002-mode .nav-link.active {
+    color: #ffcc00 !important;
+    background: #000066 !important;
+    font-weight: bold !important;
+    border: none !important;
+    text-decoration: none !important;
+}
+
+.retro-2002-mode .nav-link i {
+    color: #99ccff !important;
+    font-size: 12px !important;
+    width: 18px !important;
+    text-align: center !important;
+    margin-right: 4px !important;
+}
+
+.retro-2002-mode .nav-link:hover i {
+    color: #ffcc00 !important;
+}
+
+.retro-2002-mode .nav-group-title {
+    color: #ff6600 !important;
+    text-transform: uppercase !important;
+    font-size: 9px !important;
+    letter-spacing: 2px !important;
+    border-bottom: 1px dashed #666699 !important;
+    padding-bottom: 2px !important;
+    margin-top: 10px !important;
+    font-family: Verdana, sans-serif !important;
+}
+
+/* --- User info (sidebar bottom) --- */
+.retro-2002-mode .sidebar > div:last-child {
+    background: #222244 !important;
+    border-top: 2px ridge #9999cc !important;
+}
+
+.retro-2002-mode .sidebar > div:last-child p {
+    color: #ccccff !important;
+    text-shadow: none !important;
+    font-size: 10px !important;
+}
+
+.retro-2002-mode .sidebar > div:last-child .text-xs {
+    color: #9999cc !important;
+}
+
+.retro-2002-mode .sidebar > div:last-child a {
+    color: #ff6666 !important;
+    text-decoration: underline !important;
+}
+
+/* User avatar */
+.retro-2002-mode .sidebar .w-10.h-10.rounded-xl.overflow-hidden {
+    border: 2px outset #c0c0c0 !important;
+    background: #c0c0c0 !important;
+    box-shadow: none !important;
+}
+
+.retro-2002-mode .sidebar .w-10.h-10.rounded-xl.overflow-hidden div {
+    color: #000066 !important;
+    font-weight: bold !important;
+}
+
+/* Help/Tour button */
+.retro-2002-mode .sidebar button[onclick*="Tour"] {
+    background: #c0c0c0 !important;
+    border: 2px outset #ffffff !important;
+    color: #000000 !important;
+    font-size: 10px !important;
+}
+
+.retro-2002-mode .sidebar button[onclick*="Tour"]:hover {
+    background: #d0d0d0 !important;
+}
+
+.retro-2002-mode .sidebar button[onclick*="Tour"]:active {
+    border-style: inset !important;
+}
+
+/* --- Main Content Area --- */
+.retro-2002-mode main {
+    background: #e8e8e0 !important;
+}
+
+.retro-2002-mode .page-content {
+    background: #e8e8e0 !important;
+    animation: none !important;
+}
+
+/* --- Scrolling marquee banner --- */
+.retro-2002-mode main::before {
+    content: '\2605 Willkommen auf der Berufsmesse 2026! \2605 Diese Seite ist optimiert f\00fcr Internet Explorer 6.0 \2605 Beste Aufl\00f6sung: 800x600 \2605 Bitte G\00e4stebuch unterschreiben! \2605 Webmaster: admin@berufsmesse.de \2605';
+    display: block;
+    background: #000080 !important;
+    color: #ffff00 !important;
+    padding: 4px 0;
+    text-align: center;
+    font-size: 11px;
+    font-weight: bold;
+    font-family: 'Comic Sans MS', cursive !important;
+    border-bottom: 3px ridge #c0c0c0;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: retro-marquee 18s linear infinite !important;
+    letter-spacing: 1px;
+}
+
+@keyframes retro-marquee {
+    0% { text-indent: 100%; }
+    100% { text-indent: -200%; }
+}
+
+/* --- Visitor counter & webring footer --- */
+.retro-2002-mode main::after {
+    content: '[ Besucher Nr. 004.891 seit 01.01.2002 ] \A0\A0|\A0\A0 Erstellt mit Microsoft FrontPage 2002 \A0\A0|\A0\A0 Optimiert f\00fcr IE6 bei 800\00d7600 \A0\A0|\A0\A0 \00A9 2002 Berufsmesse \A0\A0|\A0\A0 Webring: [< Zur\00fcck] [Zuf\00e4llig] [Weiter >]';
+    display: block;
+    text-align: center;
+    font-size: 9px;
+    color: #666666;
+    padding: 8px;
+    border-top: 1px solid #999999;
+    margin-top: 20px;
+    background: #d4d4cc;
+    font-family: Verdana, sans-serif !important;
+    line-height: 1.6;
+}
+
+/* --- Cards → white table cells with visible borders --- */
+.retro-2002-mode .card,
+.retro-2002-mode [class*="rounded"],
+.retro-2002-mode .bg-white,
+.retro-2002-mode [class*="bg-white"] {
+    background: #ffffff !important;
+    border: 2px ridge #999999 !important;
+    box-shadow: none !important;
+}
+
+.retro-2002-mode .stat-card {
+    background: #ffffff !important;
+    border: 2px ridge #999999 !important;
+    box-shadow: none !important;
+}
+
+/* --- Tables → classic HTML table borders (cellpadding look) --- */
+.retro-2002-mode table {
+    border: 2px ridge #666699 !important;
+    background: #ffffff !important;
+    border-collapse: separate !important;
+    border-spacing: 2px !important;
+}
+
+.retro-2002-mode th {
+    background: #333366 !important;
+    color: #ffffff !important;
+    border: 1px outset #9999cc !important;
+    font-weight: bold !important;
+    font-size: 11px !important;
+    padding: 4px 8px !important;
+    text-shadow: none !important;
+    font-family: Verdana, sans-serif !important;
+}
+
+.retro-2002-mode td {
+    border: 1px inset #cccccc !important;
+    color: #000000 !important;
+    font-size: 11px !important;
+    padding: 3px 6px !important;
+}
+
+.retro-2002-mode tr:nth-child(even) td {
+    background: #eeeee8 !important;
+}
+
+.retro-2002-mode tr:hover td {
+    background: #ffffcc !important;
+    color: #000000 !important;
+}
+
+/* --- Buttons → classic gray 3D beveled (Win98/2000 style) --- */
+.retro-2002-mode button,
+.retro-2002-mode .btn,
+.retro-2002-mode [type="submit"],
+.retro-2002-mode a[class*="btn"] {
+    background: #c0c0c0 !important;
+    color: #000000 !important;
+    border: 2px outset #ffffff !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    font-weight: normal !important;
+    font-size: 11px !important;
+    padding: 3px 12px !important;
+    font-family: Verdana, sans-serif !important;
+}
+
+.retro-2002-mode button:hover,
+.retro-2002-mode .btn:hover {
+    background: #d4d4d4 !important;
+}
+
+.retro-2002-mode button:active,
+.retro-2002-mode .btn:active {
+    border-style: inset !important;
+    background: #b0b0b0 !important;
+    box-shadow: none !important;
+}
+
+/* Focus ring → dotted */
+.retro-2002-mode button:focus,
+.retro-2002-mode .btn:focus {
+    outline: 1px dotted #000000 !important;
+    outline-offset: -4px !important;
+}
+
+/* --- Inputs → classic inset form fields --- */
+.retro-2002-mode input,
+.retro-2002-mode select,
+.retro-2002-mode textarea {
+    background: #ffffff !important;
+    border: 2px inset #c0c0c0 !important;
+    box-shadow: none !important;
+    color: #000000 !important;
+    outline: none !important;
+    padding: 2px 4px !important;
+    font-size: 11px !important;
+    font-family: Verdana, sans-serif !important;
+}
+
+.retro-2002-mode input:focus,
+.retro-2002-mode select:focus,
+.retro-2002-mode textarea:focus {
+    border-color: #000066 !important;
+    box-shadow: none !important;
+}
+
+.retro-2002-mode input[type="checkbox"],
+.retro-2002-mode input[type="radio"] {
+    accent-color: #333366 !important;
+}
+
+/* --- Text colors --- */
+.retro-2002-mode h1 {
+    color: #cc0000 !important;
+    text-shadow: 2px 2px 0 #ffcc00 !important;
+    font-size: 20px !important;
+}
+
+.retro-2002-mode h2 {
+    color: #003399 !important;
+    text-shadow: 1px 1px 0 #cccccc !important;
+    font-size: 16px !important;
+}
+
+.retro-2002-mode h3 {
+    color: #006600 !important;
+    font-size: 13px !important;
+    text-shadow: none !important;
+}
+
+.retro-2002-mode h4,
+.retro-2002-mode h5,
+.retro-2002-mode h6 {
+    color: #663399 !important;
+    font-size: 12px !important;
+    text-shadow: none !important;
+}
+
+.retro-2002-mode p,
+.retro-2002-mode span,
+.retro-2002-mode label,
+.retro-2002-mode div {
+    color: #000000 !important;
+    font-size: 11px !important;
+}
+
+/* --- Links → classic blue, purple visited, red hover --- */
+.retro-2002-mode a:not(.nav-link):not(.btn) {
+    color: #0000ff !important;
+    text-decoration: underline !important;
+}
+
+.retro-2002-mode a:not(.nav-link):not(.btn):visited {
+    color: #800080 !important;
+}
+
+.retro-2002-mode a:not(.nav-link):not(.btn):hover {
+    color: #ff0000 !important;
+}
+
+/* --- Remove modern effects --- */
+.retro-2002-mode [class*="backdrop-blur"] {
+    backdrop-filter: none !important;
+}
+
+.retro-2002-mode [class*="shadow-xl"],
+.retro-2002-mode [class*="shadow-lg"],
+.retro-2002-mode [class*="shadow-md"] {
+    box-shadow: none !important;
+}
+
+/* --- IE-style colored scrollbar --- */
+.retro-2002-mode ::-webkit-scrollbar {
+    width: 16px !important;
+    height: 16px !important;
+}
+
+.retro-2002-mode ::-webkit-scrollbar-track {
+    background: #e0e0d8 !important;
+}
+
+.retro-2002-mode ::-webkit-scrollbar-thumb {
+    background: #c0c0c0 !important;
+    border: 1px outset #ffffff !important;
+}
+
+.retro-2002-mode ::-webkit-scrollbar-thumb:hover {
+    background: #a0a0a0 !important;
+}
+
+.retro-2002-mode ::-webkit-scrollbar-button {
+    background: #c0c0c0 !important;
+    border: 1px outset #ffffff !important;
+    display: block !important;
+    height: 16px !important;
+}
+
+/* --- Badges & tags → bright "NEW!" style labels, no blink --- */
+.retro-2002-mode [class*="badge"],
+.retro-2002-mode [class*="tag"] {
+    background: #ff0000 !important;
+    color: #ffff00 !important;
+    border: 1px solid #cc0000 !important;
+    font-size: 9px !important;
+    font-weight: bold !important;
+    padding: 1px 4px !important;
+    text-transform: uppercase !important;
+    font-family: Verdana, sans-serif !important;
+}
+
+/* --- Icons --- */
+.retro-2002-mode .fas,
+.retro-2002-mode .far,
+.retro-2002-mode .fab,
+.retro-2002-mode i[class*="fa-"] {
+    filter: none !important;
+}
+
+/* --- Mobile menu button --- */
+.retro-2002-mode #mobileMenuBtn {
+    background: #c0c0c0 !important;
+    border: 2px outset #ffffff !important;
+    box-shadow: none !important;
+}
+
+/* --- Cursor star trail container --- */
+.retro-cursor-trail {
+    position: fixed;
+    pointer-events: none;
+    z-index: 999999;
+    font-size: 14px;
+    text-shadow: 0 0 6px currentColor;
+    animation: cursor-trail-fade 1s ease-out forwards !important;
+    transition: none !important;
+}
+
+@keyframes cursor-trail-fade {
+    0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        opacity: 0.6;
+        transform: translateY(-15px) scale(0.7);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-30px) scale(0.2);
+    }
+}
+
+/* --- "Under Construction" bar --- */
+.retro-under-construction {
+    background: repeating-linear-gradient(
+        45deg,
+        #000000,
+        #000000 10px,
+        #ffcc00 10px,
+        #ffcc00 20px
+    ) !important;
+    height: 10px;
+    width: 100%;
+    position: relative;
+}
+
+/* --- Retro notification style --- */
+.retro-2002-mode .easter-egg-notification {
+    background: #ffffcc !important;
+    color: #000000 !important;
+    border: 2px outset #c0c0c0 !important;
+    box-shadow: 3px 3px 0 #000000 !important;
+    font-size: 12px !important;
+    font-weight: bold !important;
+    font-family: 'Comic Sans MS', cursive !important;
+}
+
+.retro-2002-mode .easter-egg-notification::before,
+.retro-2002-mode .easter-egg-notification::after {
+    display: none !important;
+}
+
+/* --- Sidebar "Under Construction" notice (static, no blink) --- */
+.retro-2002-mode .sidebar > div:first-child::after {
+    content: '\1F6A7 Under Construction!';
+    display: block;
+    color: #ffcc00;
+    font-size: 9px;
+    text-align: center;
+    font-family: 'Comic Sans MS', cursive !important;
+    margin-top: 4px;
+    text-shadow: 1px 1px 0 #000000;
+}
+
+/* --- Progress bars → flat blue bar in gray trough --- */
+.retro-2002-mode progress,
+.retro-2002-mode [role="progressbar"],
+.retro-2002-mode .progress-bar {
+    background: #ffffff !important;
+    border: 2px inset #808080 !important;
+}
+
+.retro-2002-mode progress::-webkit-progress-value,
+.retro-2002-mode .progress-bar > div {
+    background: #000080 !important;
+}
+
+/* --- Tabs --- */
+.retro-2002-mode [role="tab"],
+.retro-2002-mode .tab {
+    background: #c0c0c0 !important;
+    border: 2px outset #ffffff !important;
+    border-bottom: none !important;
+    color: #000000 !important;
+    font-size: 11px !important;
+    padding: 3px 10px !important;
+}
+
+.retro-2002-mode [role="tab"][aria-selected="true"],
+.retro-2002-mode .tab.active {
+    background: #ffffff !important;
+    border-style: inset !important;
+    border-bottom: 2px solid #ffffff !important;
+    font-weight: bold !important;
+}
+
+/* --- Select boxes --- */
+.retro-2002-mode select {
+    appearance: auto !important;
+    -webkit-appearance: auto !important;
+}
+
+/* --- Images → pixelated with classic border --- */
+.retro-2002-mode img {
+    image-rendering: pixelated !important;
+    border: 2px solid #333366 !important;
+}
+
+/* --- Horizontal rules → rainbow gradient --- */
+.retro-2002-mode hr {
+    border: none !important;
+    height: 3px !important;
+    background: linear-gradient(90deg, #ff0000, #ff7700, #ffff00, #00ff00, #0000ff, #8b00ff, #ff0000) !important;
+    margin: 10px 0 !important;
+}
+
+/* --- Modal/Dialog --- */
+.retro-2002-mode [role="dialog"],
+.retro-2002-mode .modal {
+    background: #e8e8e0 !important;
+    border: 3px ridge #999999 !important;
+    box-shadow: 4px 4px 0 #000000 !important;
+}
+
+/* --- Welcome text --- */
+.retro-2002-mode .welcome-section h1 {
+    font-size: 18px !important;
+}
+
+/* Title bar dots for cards */
+.retro-2002-mode .welcome-section > div > div > h1::before {
+    content: '\2606\2605\2606 ';
+    margin-right: 6px;
+    color: #ffcc00;
+    font-size: 12px;
+}
+
+/* --- Resize grip in bottom right --- */
+.retro-2002-mode body::after {
+    content: '';
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 16px;
+    height: 16px;
+    background: linear-gradient(
+        135deg,
+        transparent 30%,
+        #999999 30%,
+        #999999 40%,
+        transparent 40%,
+        transparent 50%,
+        #999999 50%,
+        #999999 60%,
+        transparent 60%,
+        transparent 70%,
+        #999999 70%,
+        #999999 80%,
+        transparent 80%
+    );
+    z-index: 99999;
+    pointer-events: none;
+}
+
+/* --- Geocities-style "email webmaster" link styling --- */
+.retro-2002-mode .sidebar > div:last-child a:hover {
+    color: #ffff00 !important;
+}
+
+/* --- Status bar at bottom of page --- */
+.retro-2002-mode .dashboard-container::after,
+.retro-2002-mode main > div:last-child::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+/* ============================================
+   EASTER EGG 2: CMD Taskkill Overlay
+   ============================================ */
+.cmd-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999999;
+    animation: cmdFadeIn 0.3s ease-out;
+}
+
+@keyframes cmdFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.cmd-window {
+    background: #000;
+    border: 2px solid #c0c0c0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+    width: 90%;
+    max-width: 700px;
+    font-family: 'Courier New', Courier, monospace;
+    animation: cmdSlideIn 0.5s ease-out;
+}
+
+@keyframes cmdSlideIn {
+    from {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.cmd-title-bar {
+    background: linear-gradient(180deg, #0078d4 0%, #005a9e 100%);
+    color: white;
+    padding: 8px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.cmd-title-bar button {
+    background: #c0c0c0;
+    border: 2px outset #fff;
+    color: #000;
+    width: 24px;
+    height: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0;
+    font-size: 12px;
+}
+
+.cmd-title-bar button:hover {
+    background: #e0e0e0;
+}
+
+.cmd-title-bar button:active {
+    border-style: inset;
+}
+
+.cmd-content {
+    padding: 20px;
+    color: #c0c0c0;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.cmd-line {
+    margin: 4px 0;
+    animation: cmdTypewriter 0.5s steps(40) forwards;
+    white-space: pre-wrap;
+}
+
+@keyframes cmdTypewriter {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.cmd-success {
+    color: #00ff00;
+    font-weight: bold;
+}
+
+#countdown {
+    color: #ff0000;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* ============================================
+   EASTER EGG 3: Bouncing Icons
+   ============================================ */
+.bouncing-icons-mode i,
+.bouncing-icons-mode .fas,
+.bouncing-icons-mode .far,
+.bouncing-icons-mode .fab {
+    animation: bounce-wild 0.6s ease-in-out infinite !important;
+}
+
+/* Stagger the animations for different icons */
+.bouncing-icons-mode .nav-link:nth-child(1) i { animation-delay: 0s !important; }
+.bouncing-icons-mode .nav-link:nth-child(2) i { animation-delay: 0.1s !important; }
+.bouncing-icons-mode .nav-link:nth-child(3) i { animation-delay: 0.2s !important; }
+.bouncing-icons-mode .nav-link:nth-child(4) i { animation-delay: 0.3s !important; }
+.bouncing-icons-mode .nav-link:nth-child(5) i { animation-delay: 0.4s !important; }
+.bouncing-icons-mode .nav-link:nth-child(6) i { animation-delay: 0.5s !important; }
+.bouncing-icons-mode .nav-link:nth-child(7) i { animation-delay: 0.6s !important; }
+.bouncing-icons-mode .nav-link:nth-child(8) i { animation-delay: 0.7s !important; }
+
+@keyframes bounce-wild {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg) scale(1);
+    }
+    25% {
+        transform: translateY(-15px) rotate(-10deg) scale(1.2);
+    }
+    50% {
+        transform: translateY(0) rotate(10deg) scale(0.9);
+    }
+    75% {
+        transform: translateY(-10px) rotate(-5deg) scale(1.1);
+    }
+}
+
+/* Make the main icon bounce more dramatically */
+.bouncing-icons-mode .fa-graduation-cap {
+    animation: bounce-dramatic 0.8s ease-in-out infinite !important;
+}
+
+@keyframes bounce-dramatic {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg) scale(1);
+    }
+    25% {
+        transform: translateY(-25px) rotate(-20deg) scale(1.3);
+    }
+    50% {
+        transform: translateY(5px) rotate(20deg) scale(0.8);
+    }
+    75% {
+        transform: translateY(-15px) rotate(-10deg) scale(1.2);
+    }
+}
+
+/* Add rainbow colors to icons */
+.bouncing-icons-mode i {
+    animation: bounce-wild 0.6s ease-in-out infinite, rainbow-colors 3s linear infinite !important;
+}
+
+@keyframes rainbow-colors {
+    0% { color: #ff0000; }
+    16% { color: #ff7f00; }
+    33% { color: #ffff00; }
+    50% { color: #00ff00; }
+    66% { color: #0000ff; }
+    83% { color: #8b00ff; }
+    100% { color: #ff0000; }
+}
+
+/* ============================================
+   EASTER EGG 4: Bubble Screensaver
+   ============================================ */
+.bubble-screensaver {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 999998;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(2px);
+}
+
+.bubble {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    box-shadow: 
+        inset -10px -10px 20px rgba(255, 255, 255, 0.4),
+        inset 10px 10px 20px rgba(0, 0, 0, 0.2),
+        0 0 20px rgba(255, 255, 255, 0.3);
+    animation: float-bubble 15s ease-in-out infinite;
+    opacity: 0.8;
+}
+
+@keyframes float-bubble {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+    25% {
+        transform: translate(100px, -100px) scale(1.2);
+    }
+    50% {
+        transform: translate(-50px, -200px) scale(0.9);
+    }
+    75% {
+        transform: translate(-150px, -100px) scale(1.1);
+    }
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+}
+
+/* Add multiple animation variations */
+.bubble:nth-child(2n) {
+    animation: float-bubble-alt 12s ease-in-out infinite;
+}
+
+.bubble:nth-child(3n) {
+    animation: float-bubble-reverse 18s ease-in-out infinite;
+}
+
+@keyframes float-bubble-alt {
+    0% {
+        transform: translate(0, 0) scale(1) rotate(0deg);
+    }
+    33% {
+        transform: translate(-120px, 80px) scale(1.3) rotate(120deg);
+    }
+    66% {
+        transform: translate(80px, -150px) scale(0.8) rotate(240deg);
+    }
+    100% {
+        transform: translate(0, 0) scale(1) rotate(360deg);
+    }
+}
+
+@keyframes float-bubble-reverse {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+    25% {
+        transform: translate(-100px, 100px) scale(0.9);
+    }
+    50% {
+        transform: translate(50px, 200px) scale(1.2);
+    }
+    75% {
+        transform: translate(150px, 100px) scale(0.85);
+    }
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+}
+
+/* Bubble shine effect */
+.bubble::before {
+    content: '';
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 40%;
+    height: 40%;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), transparent);
+    border-radius: 50%;
+}
+
+/* Bubble reflection */
+.bubble::after {
+    content: '';
+    position: absolute;
+    bottom: 15%;
+    right: 15%;
+    width: 20%;
+    height: 20%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.6), transparent);
+    border-radius: 50%;
+}
+
+/* ============================================
+   Easter Egg Notification
+   ============================================ */
+.easter-egg-notification {
+    position: fixed;
+    top: 20px;
+    right: -400px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 16px 24px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    z-index: 9999999;
+    font-weight: 600;
+    font-size: 16px;
+    transition: right 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    max-width: 350px;
+}
+
+.easter-egg-notification.show {
+    right: 20px;
+}
+
+/* Add sparkle effect to notification */
+.easter-egg-notification::before {
+    content: '✨';
+    position: absolute;
+    left: -10px;
+    top: -10px;
+    font-size: 24px;
+    animation: sparkle-rotate 2s linear infinite;
+}
+
+.easter-egg-notification::after {
+    content: '✨';
+    position: absolute;
+    right: -10px;
+    bottom: -10px;
+    font-size: 24px;
+    animation: sparkle-rotate 2s linear infinite reverse;
+}
+
+@keyframes sparkle-rotate {
+    0% {
+        transform: rotate(0deg) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: rotate(180deg) scale(1.2);
+        opacity: 0.7;
+    }
+    100% {
+        transform: rotate(360deg) scale(1);
+        opacity: 1;
+    }
+}
+
+/* ============================================
+   Responsive Adjustments
+   ============================================ */
+@media (max-width: 768px) {
+    .easter-egg-notification {
+        top: 10px;
+        right: -300px;
+        max-width: 280px;
+        font-size: 14px;
+        padding: 12px 18px;
+    }
+    
+    .easter-egg-notification.show {
+        right: 10px;
+    }
+    
+    .cmd-window {
+        width: 95%;
+        font-size: 12px;
+    }
+    
+    .bubble {
+        opacity: 0.6;
+    }
+}

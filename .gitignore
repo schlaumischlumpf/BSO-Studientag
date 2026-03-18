@@ -1,0 +1,39 @@
+# Umgebungsvariablen (enthält Passwörter)
+.env
+
+# Claude
+.claude/*
+
+# Log-Dateien
+.htaccess
+
+# Dockerdateien
+compose.yaml
+Dockerfile
+
+# Hochgeladene Dateien
+uploads/*
+!uploads/.gitkeep
+
+# IDE/Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Betriebssystem
+.DS_Store
+Thumbs.db
+
+# config.php
+config.php
+
+# Datenbanken entfernen
+*.sql
+
+# Github Actions
+.github
+
+# Claude
+.claude
+

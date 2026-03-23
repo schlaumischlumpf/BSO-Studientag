@@ -1,37 +1,40 @@
-services:
-  proxy:
-    image: nginx:alpine
-    container_name: bso_proxy
-    depends_on:
-      - app
-    ports:
-      - "9000:80"
-    volumes:
-      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
-      - .:/var/www/html:ro
-    networks:
-      - bso_net
+version: '3.8'
 
+services:
   app:
+    container_name: bso-app
     build:
       context: .
-    container_name: bso_app
+    volumes:
+      - .:/var/www/html
     depends_on:
       db:
         condition: service_healthy
     environment:
-      DB_HOST: db
-      DB_USER: root
-      DB_PASS: "test"
-      DB_NAME: bso
+      - DB_HOST=db
+      - DB_USER=root
+      - DB_PASS=test
+      - DB_NAME=bso
+    networks:
+      - bso-network
+
+  web:
+    container_name: bso-web
+    image: nginx:stable-alpine
+    ports:
+      - "9000:80"
     volumes:
       - .:/var/www/html
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - app
     networks:
-      - bso_net
+      - bso-network
+      # - proxy_network # Einkommentieren, falls du dieses externe Netzwerk hier auch brauchst
 
   db:
+    container_name: bso-db
     image: mariadb:10.9
-    container_name: bso_db
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: "test"
@@ -44,11 +47,11 @@ services:
       timeout: 5s
       retries: 5
     networks:
-      - bso_net
+      - bso-network
 
   phpmyadmin:
+    container_name: bso-phpmyadmin
     image: phpmyadmin/phpmyadmin:latest
-    container_name: bso_phpmyadmin
     restart: always
     depends_on:
       db:
@@ -61,11 +64,13 @@ services:
     ports:
       - "8082:80"
     networks:
-      - bso_net
+      - bso-network
 
 volumes:
   db-data:
 
 networks:
-  bso_net:
+  bso-network:
     driver: bridge
+  # proxy_network:
+  #   external: true

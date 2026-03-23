@@ -51,7 +51,7 @@ services:
       PMA_PASSWORD: "test"
       PHP_UPLOAD_MAX_FILESIZE: 16M
     ports:
-      - 8081:80
+      - 8082:80
 
 volumes:
   db-data:
